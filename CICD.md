@@ -1,0 +1,5 @@
+### The custom pipeline.
+
+In this video we configure the buildbot to take source from my [udemy](https://github.com/r3ap3rpy/udemy) repository. We set a GitPoller up to look for changes every 60 seconds, and create a periodic scheduler which will try to build if changes are picked up. Then finally the artifacts are deployed to [pypi](https://pypi.org) to make the new versio generally available for everyone.
+
+There is a catch, you need to install [twine] and configure username and password for the upload. You can either pass the username and password in this commandline as arguments (which is not safe), or use environment variables **TWINE_PASSWORD** and **TWINE_USERNAME** to allow the buildbot to pickup the credentials. If you go with the environment variable solution you need to restart the worker in a new window.
